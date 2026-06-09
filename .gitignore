@@ -1,0 +1,31 @@
+# Ambiente virtual
+venv/
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# Banco de dados local
+instance/database.db
+
+# Variáveis de ambiente
+.env
+
+# VS Code
+.vscode/
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos SQLite temporários
+*.db-journal
+
+# Cache de testes e ferramentas Python
+.pytest_cache/
+.mypy_cache/
+
+# Arquivos de build Python
+build/
+dist/
+*.egg-info/
