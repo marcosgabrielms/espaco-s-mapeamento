@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Novo Cliente</h1>
+
+<form action="/cliente/salvar" method="POST">
+
+    <label>Nome:</label>
+    <input type="text" name="nome" required>
+
+    <br><br>
+
+    <label>Telefone:</label>
+    <input type="text" name="telefone" required>
+
+    <br><br>
+
+    <label>E-mail:</label>
+    <input type="email" name="email" required>
+
+    <br><br>
+
+    <label>Empresa:</label>
+    <input type="text" name="empresa">
+
+    <br><br>
+
+    <label>Tipo:</label>
+
+    <select name="tipo">
+
+        <option>Pessoa Física</option>
+        <option>Pessoa Jurídica</option>
+
+    </select>
+
+    <br><br>
+
+    <label>Origem:</label>
+
+    <select name="origem">
+
+        <option>Instagram</option>
+        <option>WhatsApp</option>
+        <option>Site</option>
+        <option>Evento</option>
+        <option>Indicação</option>
+
+    </select>
+
+    <br><br>
+
+    <button type="submit">
+
+        Salvar Cliente
+
+    </button>
+
+</form>
+
+{% endblock %}
