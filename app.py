@@ -1,7 +1,15 @@
-from flask import Flask, render_template, request, redirect, url_for
-
+from flask import Flask, render_template
+from routes.dashboard_routes import dashboard_bp
 from config import Config
-from models.models import db, Cliente
+from models import db
+
+from routes.cliente_routes import (
+    cliente_bp
+)
+
+from routes.atendimento_routes import (
+    atendimento_bp
+)
 
 app = Flask(__name__)
 
@@ -12,41 +20,26 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
+app.register_blueprint(
+    cliente_bp
+)
+
+app.register_blueprint(
+    atendimento_bp
+)
+app.register_blueprint(
+    dashboard_bp
+)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
 
-@app.route("/cliente/novo")
-def novo_cliente():
-    return render_template("cliente_form.html")
-
-@app.route("/cliente/salvar", methods=["POST"])
-def salvar_cliente():
-
-    cliente = Cliente(
-        nome = request.form["nome"],
-        telefone = request.form["telefone"],
-        email = request.form["email"],
-        empresa = request.form["empresa"],
-        tipo = request.form["tipo"],
-        origem = request.form["origem"]
-    )
-
-    db.session.add(cliente)
-    db.session.commit()
-
-    return redirect(url_for("listar_clientes"))
-
-@app.route("/clientes")
-def listar_clientes():
-    
-    clientes = Cliente.query.all()
+    from flask import render_template
 
     return render_template(
-        "clientes.html",
-        clientes=clientes
+        "home/index.html"
     )
+
 
 if __name__ == "__main__":
     app.run(debug=True)
