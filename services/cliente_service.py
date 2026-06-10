@@ -30,3 +30,12 @@ def listar_clientes():
 def buscar_cliente(cliente_id):
 
     return Cliente.query.get_or_404(cliente_id)
+
+def buscar_cliente_com_atendimento(
+    cliente_id
+):
+    return Cliente.query.get._or_404(
+        cliente_id
+    )
+    
+    

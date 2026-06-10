@@ -11,6 +11,10 @@ from services.cliente_service import (
     listar_clientes
 )
 
+from services.cliente_service import (
+    buscar_cliente_com_atendimento
+)
+
 cliente_bp = Blueprint(
     "cliente",
     __name__
@@ -51,4 +55,18 @@ def listar_clientes_view():
     return render_template(
         "cliente/lista.html",
         clientes=clientes
+    )
+
+@cliente_bp.route (
+    "cliente/<int:cliente_id>"
+)
+def detalhes_clientes(cliente_id):
+
+    cliente = buscar_cliente_com_atendimento(
+        cliente_id
+    )
+
+    return render_template(
+        "cliente/detalhes.html",
+        cliente=cliente
     )
