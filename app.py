@@ -11,6 +11,16 @@ from routes.atendimento_routes import (
     atendimento_bp
 )
 
+import os
+
+os.makedirs(
+    os.path.join(
+        os.path.dirname(__file__),
+        "instance"
+    ),
+    exist_ok=True
+)
+
 app = Flask(__name__)
 
 app.config.from_object(Config)
