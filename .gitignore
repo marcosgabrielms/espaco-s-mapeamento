@@ -29,3 +29,10 @@ Thumbs.db
 build/
 dist/
 *.egg-info/
+
+# Arquivos de cobertura de testes
+.coverage
+htmlcov/
+
+# Logs
+*.log
