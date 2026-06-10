@@ -28,57 +28,62 @@
 
 </div>
 
-
 <div class="card">
 
     <h3>Histórico de Atendimentos</h3>
 
     {% if cliente.atendimentos %}
 
-        <table>
+    <table>
 
-            <tr>
-                <th>ID</th>
-                <th>Necessidade</th>
-                <th>Classificação</th>
-                <th>Data</th>
-                <th>Ação</th>
-            </tr>
+        <tr>
+            <th>ID</th>
+            <th>Necessidade</th>
+            <th>Classificação</th>
+            <th>Data</th>
+            <th>Relatório</th>
+        </tr>
 
-            {% for atendimento in cliente.atendimentos %}
+        {% for atendimento in cliente.atendimentos %}
 
-            <tr>
+        <tr>
 
-                <td>{{ atendimento.id }}</td>
+            <td>{{ atendimento.id }}</td>
 
-                <td>{{ atendimento.necessidade }}</td>
+            <td>{{ atendimento.necessidade }}</td>
 
-                <td>{{ atendimento.classificacao }}</td>
+            <td>{{ atendimento.classificacao }}</td>
 
-                <td>{{ atendimento.criado_em }}</td>
+            <td>
+                {{ atendimento.criado_em.strftime('%d/%m/%Y %H:%M') }}
+            </td>
 
-                <td>
+            <td>
 
-                    <a href="/relatorio/{{ atendimento.id }}">
-                        Ver Relatório
-                    </a>
+                <a
+                    href="/relatorio/{{ atendimento.id }}"
+                    class="btn"
+                >
+                    Abrir
+                </a>
 
-                </td>
+            </td>
 
-            </tr>
+        </tr>
 
-            {% endfor %}
+        {% endfor %}
 
-        </table>
+    </table>
 
     {% else %}
 
-        <p>Nenhum atendimento registrado.</p>
+    <p>
+        Nenhum atendimento registrado.
+    </p>
 
     {% endif %}
 
 </div>
-
 
 <a
     href="/atendimento/novo/{{ cliente.id }}"

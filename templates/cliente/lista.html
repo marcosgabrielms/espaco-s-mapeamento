@@ -4,13 +4,14 @@
 
 <h1>Clientes Cadastrados</h1>
 
-<table border="1">
+<table>
 
     <tr>
         <th>Nome</th>
         <th>Telefone</th>
         <th>Email</th>
         <th>Como Conheceu</th>
+        <th>Atendimentos</th>
         <th>Ações</th>
     </tr>
 
@@ -19,14 +20,31 @@
     <tr>
 
         <td>{{ cliente.nome }}</td>
+
         <td>{{ cliente.telefone }}</td>
+
         <td>{{ cliente.email }}</td>
+
         <td>{{ cliente.como_conheceu }}</td>
 
+        <td>{{ cliente.atendimentos|length }}</td>
+
         <td>
-            <a href="/atendimento/novo/{{ cliente.id }}">
-                Ver Cliente
+
+            <a
+                href="/cliente/{{ cliente.id }}"
+                class="btn"
+            >
+                Histórico
             </a>
+
+            <a
+                href="/atendimento/novo/{{ cliente.id }}"
+                class="btn"
+            >
+                Novo Atendimento
+            </a>
+
         </td>
 
     </tr>
