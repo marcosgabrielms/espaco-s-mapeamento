@@ -8,19 +8,74 @@
 
     <h3>Dados do Cliente</h3>
 
-    <p>Nome:</p>
-    <p>Telefone:</p>
-    <p>Email:</p>
+    <p>
+        <strong>Nome:</strong>
+        {{ atendimento.cliente.nome }}
+    </p>
+
+    <p>
+        <strong>Telefone:</strong>
+        {{ atendimento.cliente.telefone }}
+    </p>
+
+    <p>
+        <strong>Email:</strong>
+        {{ atendimento.cliente.email }}
+    </p>
+
+    <p>
+        <strong>Como conheceu:</strong>
+        {{ atendimento.cliente.como_conheceu }}
+    </p>
 
 </div>
+
 
 <div class="card">
 
     <h3>Diagnóstico</h3>
 
-    <p>Necessidade:</p>
-    <p>Objetivo:</p>
-    <p>Classificação:</p>
+    <p>
+        <strong>Problema:</strong>
+        {{ atendimento.problema }}
+    </p>
+
+    <p>
+        <strong>Necessidade:</strong>
+        {{ atendimento.necessidade }}
+    </p>
+
+    <p>
+        <strong>Objetivo:</strong>
+        {{ atendimento.objetivo }}
+    </p>
+
+    <p>
+        <strong>Interesse:</strong>
+        {{ atendimento.interesse }}
+    </p>
+
+    <p>
+        <strong>Prazo:</strong>
+        {{ atendimento.prazo }}
+    </p>
+
+    <p>
+        <strong>Observações:</strong>
+        {{ atendimento.observacoes }}
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h3>Classificação</h3>
+
+    <p>
+        <strong>Status:</strong>
+        {{ atendimento.classificacao }}
+    </p>
 
 </div>
 

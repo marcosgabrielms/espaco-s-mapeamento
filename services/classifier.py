@@ -3,10 +3,10 @@ CLASSIFICACOES = {
     ("Alto", "Imediato"):
         "Cliente Prioritário",
 
-    ("Médio", "Curto Prazo"):
+    ("Médio", "Curto prazo"):
         "Cliente em Acompanhamento",
 
-    ("Baixo", "Sem Urgência"):
+    ("Baixo", "Sem urgência"):
         "Cliente em Análise"
 }
 
