@@ -5,23 +5,38 @@
 <h2>Dashboard</h2>
 
 <div class="card">
+
     <h3>Total de Clientes</h3>
-    <p>0</p>
+
+    <p>{{ total_clientes }}</p>
+
 </div>
 
-<div class="card">
-    <h3>Clientes Quentes</h3>
-    <p>0</p>
-</div>
 
 <div class="card">
-    <h3>Clientes Mornos</h3>
-    <p>0</p>
+
+    <h3>Clientes Prioritários</h3>
+
+    <p>{{ prioritarios }}</p>
+
 </div>
 
+
 <div class="card">
-    <h3>Clientes Frios</h3>
-    <p>0</p>
+
+    <h3>Clientes em Acompanhamento</h3>
+
+    <p>{{ acompanhamento }}</p>
+
+</div>
+
+
+<div class="card">
+
+    <h3>Clientes em Análise</h3>
+
+    <p>{{ analise }}</p>
+
 </div>
 
 {% endblock %}
