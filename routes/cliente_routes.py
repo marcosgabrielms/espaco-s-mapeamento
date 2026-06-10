@@ -57,8 +57,8 @@ def listar_clientes_view():
         clientes=clientes
     )
 
-@cliente_bp.route (
-    "cliente/<int:cliente_id>"
+@cliente_bp.route(
+    "/cliente/<int:cliente_id>"
 )
 def detalhes_clientes(cliente_id):
 
