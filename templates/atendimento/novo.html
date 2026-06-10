@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Novo Atendimento</h2>
+
+<p>
+    Cliente:
+    <strong>{{ cliente.nome }}</strong>
+</p>
+
+<form action="/atendimento/salvar" method="POST">
+
+    <input
+        type="hidden"
+        name="cliente_id"
+        value="{{ cliente.id }}"
+    >
+
+    <label>Problema Relatado</label>
+
+    <textarea
+        name="problema"
+        rows="4"
+        required
+    ></textarea>
+
+    <br><br>
+
+    <label>Necessidade Principal</label>
+
+    <input
+        type="text"
+        name="necessidade"
+        required
+    >
+
+    <br><br>
+
+    <label>Objetivo</label>
+
+    <input
+        type="text"
+        name="objetivo"
+        required
+    >
+
+    <br><br>
+
+    <label>Nível de Interesse</label>
+
+    <select
+        name="interesse"
+        required
+    >
+        <option>Baixo</option>
+        <option>Médio</option>
+        <option>Alto</option>
+    </select>
+
+    <br><br>
+
+    <label>Prazo Desejado</label>
+
+    <select
+        name="prazo"
+        required
+    >
+        <option>Sem urgência</option>
+        <option>Curto prazo</option>
+        <option>Imediato</option>
+    </select>
+
+    <br><br>
+
+    <label>Observações</label>
+
+    <textarea
+        name="observacoes"
+        rows="4"
+    ></textarea>
+
+    <br><br>
+
+    <button
+        type="submit"
+        class="btn"
+    >
+        Salvar Atendimento
+    </button>
+
+</form>
+
+{% endblock %}

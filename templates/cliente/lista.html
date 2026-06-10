@@ -10,16 +10,27 @@
         <th>Nome</th>
         <th>Telefone</th>
         <th>Email</th>
-        <th>Empresa</th>
+        <th>Como Conheceu</th>
+        <th>Ações</th>
     </tr>
 
     {% for cliente in clientes %}
+
     <tr>
+
         <td>{{ cliente.nome }}</td>
         <td>{{ cliente.telefone }}</td>
         <td>{{ cliente.email }}</td>
-        <td>{{ cliente.empresa }}</td>
+        <td>{{ cliente.como_conheceu }}</td>
+
+        <td>
+            <a href="/atendimento/novo/{{ cliente.id }}">
+                Novo Atendimento
+            </a>
+        </td>
+
     </tr>
+
     {% endfor %}
 
 </table>
