@@ -1,0 +1,38 @@
+:root {
+
+    --azul-claro: #6EC6FF;
+    --azul-medio: #2196F3;
+    --azul-escuro: #0D47A1;
+
+    --branco: #FFFFFF;
+
+    --cinza-claro: #F4F6F8;
+    --cinza-medio: #D9D9D9;
+
+    --sombra:
+        0 4px 15px rgba(0, 0, 0, .15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--azul-claro),
+            var(--azul-medio),
+            var(--azul-escuro)
+        );
+
+    min-height: 100vh;
+}
