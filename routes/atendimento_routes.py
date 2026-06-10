@@ -7,6 +7,11 @@ from flask import (
 )
 
 from models import Atendimento
+from flask import send_file
+
+from services.pdf_generator import (
+    gerar_pdf_atendimento
+)
 
 from services.cliente_service import (
     buscar_cliente
@@ -36,9 +41,6 @@ def novo_atendimento(cliente_id):
         cliente=cliente
     )
 
-
-# NOVO
-# Recebe os dados do formulário e salva o atendimento
 @atendimento_bp.route(
     "/atendimento/salvar",
     methods=["POST"]
@@ -81,4 +83,24 @@ def relatorio(atendimento_id):
     return render_template(
         "atendimento/relatorio.html",
         atendimento=atendimento
+    )
+
+@atendimento_bp.route(
+    "/relatorio/pdf/<int:atendimento_id>"
+)
+def gerar_pdf(atendimento_id):
+
+    atendimento = Atendimento.query.get_or_404(
+        atendimento_id
+    )
+
+    pdf = gerar_pdf_atendimento(
+        atendimento
+    )
+
+    return send_file(
+        pdf,
+        as_attachment=True,
+        download_name=f"relatorio_{atendimento.id}.pdf",
+        mimetype="application/pdf"
     )
