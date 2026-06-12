@@ -6,10 +6,16 @@ BASE_DIR = os.path.abspath(
 
 class Config:
 
-    SQLALCHEMY_DATABASE_URI = os.getenv(
-        "DATABASE_URL",
-        f"sqlite:///database.db'"
+    database_url = os.getenv(
+        "DATABASE_URL"
     )
+
+    if database_url:
+        SQLALCHEMY_DATABASE_URI = database_url
+    else:
+        SQLALCHEMY_DATABASE_URI = (
+            f"sqlite:///{os.path.join(BASE_DIR, 'database.db')}"
+        )
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
